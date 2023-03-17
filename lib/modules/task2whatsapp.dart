@@ -35,9 +35,12 @@ class _WhatsAppState extends State<WhatsApp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton(child : const Icon(Icons.camera_alt),
-        onPressed: (){},
-        backgroundColor: Colors.green,
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.all(10.0),
+        child: FloatingActionButton(onPressed: (){},
+          backgroundColor: Colors.green,tooltip: "Smile!",
+          child : const Icon(Icons.camera_alt),
+        ),
       ),
       appBar: AppBar(
         backgroundColor: Colors.green,
