@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tasks/main.dart';
+import 'package:tasks/modules/LoginScreen.dart';
 
 import 'WidgetTesting.dart';
 
@@ -67,20 +68,28 @@ class _WhatsAppState extends State<WhatsApp> {
                 child:Column(
                   mainAxisAlignment: MainAxisAlignment.end,
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
-                    CircleAvatar(
-                      radius: 40,
-                      backgroundImage: AssetImage("assets/images/-ey-2.jpg"),
+                  children: [
+                    InkWell(
+                      onTap: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => const Picture()));
+                      },
+                      child: const Hero(
+                        tag: Picture,
+                        child: CircleAvatar(
+                          radius: 40,
+                          backgroundImage: AssetImage("assets/images/-ey-2.jpg"),
+                        ),
+                      ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
-                    Text("Maryam Tarek",style: TextStyle(
+                    const Text("Maryam Tarek",style: TextStyle(
                       fontSize: 20,
                       // fontWeight: FontWeight.bold,
                       color: Colors.white,
                     ),),
-                    Text("AnEmail@gmail.com",style: TextStyle(
+                    const Text("AnEmail@gmail.com",style: TextStyle(
                       color: Colors.white,
                     ),),
                   ],
@@ -117,6 +126,19 @@ class _WhatsAppState extends State<WhatsApp> {
           );
         }
       ),
+    );
+  }
+}
+
+
+class Picture extends StatelessWidget {
+  const Picture({Key? key}) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    return const Scaffold(
+      body: Hero(
+        tag: Picture,
+          child: Center(child: Image(image: AssetImage("assets/images/-ey-2.jpg")))),
     );
   }
 }
